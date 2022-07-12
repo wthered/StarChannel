@@ -1,0 +1,22 @@
+a.btn-article {
+	width: 100%;
+	min-width: 100%;
+	display: block;
+	background-color: #dff9fb;
+	color: #22a6b3;
+	text-decoration: none;
+	margin: 1rem 0;
+}
+
+a.btn-article.active {
+	background-color: #c7ecee;
+}
+
+textarea#articleBody {
+	resize: none;
+}
+
+.list-item-warning {
+	color: #30336b;
+	background-color: #ffbe76;
+}
