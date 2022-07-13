@@ -3,7 +3,6 @@
 	namespace App\Http\Controllers;
 
 	use App\Models\Article;
-	use App\Models\ArticleCategory;
 	use App\Models\Category;
 	use Illuminate\Contracts\Support\Renderable;
 	use Illuminate\Http\Request;

@@ -1,9 +1,138 @@
+:root {
+	font-size: 16px;
+	--border-radius: 6px;
+	--secondary-color: #ebc727;
+	--heading-color: #3f3a64;
+	--font-color: #666;
+}
+
 body {
 	font-family: 'Nunito', sans-serif;
 }
 
+.orange {
+	background: #ff8763;
+}
+
+.category {
+	width: 100%;
+}
+
 .greece {
 	background-color: #eb4d4b;
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	/*margin-right: -1rem;*/
+	/*margin-left: -1rem;*/
+}
+
+.col-6 {
+	flex: 0 0 50%;
+	max-width: 50%;
+	position: relative;
+	width: 100%;
+	padding: 0;
+}
+
+.card {
+	border: none;
+	background: transparent;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+	word-wrap: break-word;
+	background-clip: border-box;
+	border-radius: 0.25rem;
+	margin: 1rem;
+}
+
+.card-header {
+	border: none;
+	padding: 0;
+	margin-bottom: 0;
+	background-color: rgba(0, 0, 0, 0.03);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+	position: relative;
+}
+
+.card-header:first-child {
+	border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+}
+
+a {
+	color: #ff8763;
+	text-decoration: none;
+	background-color: transparent;
+	display: flex;
+}
+
+a.recipe {
+	background: var(--secondary-color);
+	color: #fff;
+	padding: 3px 20px;
+	border-radius: 35px;
+	font-weight: 700;
+	font-size: 12px;
+	margin-bottom: 5px;
+	display: inline-block;
+	letter-spacing: .05em;
+}
+
+a img {
+	border-radius: var(--border-radius);
+	display: block;
+	flex-shrink: 0;
+	width: 100%;
+}
+
+.post-pos {
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+}
+
+.card-body {
+	flex: 1 1 auto;
+	min-height: 1px;
+	padding: 0;
+}
+
+a.blog-desc {
+	display: block;
+	font-size: 22px;
+	line-height: 28px;
+	font-weight: 700;
+	color: var(--heading-color);
+	margin-top: 25px;
+	margin-bottom: 15px;
+	transition: .3s ease;
+	-webkit-transition: .3s ease;
+	-ms-transition: .3s ease;
+	-o-transition: .3s ease;
+}
+
+.card-body p {
+	margin: 0;
+	padding: 0;
+	font-size: 18px;
+	line-height: 28px;
+	color: var(--font-color);
+	opacity: .8;
+}
+
+.p-footer {
+	display: flex;
+	justify-content: end;
+	margin: 1rem 0;
+}
+
+.p-footer a {
+	display: flex;
+	align-items: center;
 }
 
 .world {

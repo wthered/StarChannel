@@ -24,8 +24,8 @@
 		 */
 		public function index(): View {
 //			$articles = Article::get()->orderBy('updated_at')->limit(5);
-//			$articles = Article::limit(5)->get();
-			return view('admin.articles');
+			$articles = Article::limit(5)->get();
+			return view('admin.articles', ['articles' => $articles]);
 		}
 
 		/**

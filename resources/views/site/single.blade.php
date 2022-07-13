@@ -1,35 +1,18 @@
-@extends('layouts.app')
+<!doctype html>
+<html lang = "en">
+<head>
+	<meta charset = "UTF-8">
+	<meta name = "viewport" content = "width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv = "X-UA-Compatible" content = "ie=edge">
+	<title>Single Page</title>
+	<link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+	<link rel = "stylesheet" href = "{{ asset('css/app.css') }}">
+</head>
+<body>
 
-@section('content')
-	<div class = "container">
-		<div class = "row">
-			<div class = "col-md-9">
-				<h1>{{ $article->title }}</h1>
-				<h2>{{ $article->subtitle }}</h2>
-				<p>{{ $article->body }}</p>
-			</div>
-			<div class = "col-md-3">
-				<div class = "sidebar-sticky">
-					<div class = "sidebar-sticky-fix">
-						<!-- Tags Widget-->
-						<div class = "sidebar-widget popular-tags">
-							<div class = "sidebar-title">
-								<h4>Category</h4>
-							</div>
-							<span class="category">{{ $category }}</span>
-						</div>
-
-					</div>
-				</div>
-			</div>
-		</div>
-
-	</div>
-
-	<div class = "container">
-		<div class = "row">
-
-		</div>
-	</div>
-
-@endsection
+<div class="container">
+	<h1>{{ $article->title }}</h1>
+	<h2>{{ $article->subtitle }}</h2>
+</div>
+</body>
+</html>
