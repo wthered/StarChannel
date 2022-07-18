@@ -12,6 +12,7 @@
 	use Illuminate\Http\JsonResponse;
 	use Illuminate\Http\RedirectResponse;
 	use Illuminate\Http\Request;
+	use Illuminate\Routing\Redirector;
 	use Illuminate\Support\Str;
 	use Illuminate\View\View;
 	use Throwable;
@@ -23,8 +24,7 @@
 		 * @return View
 		 */
 		public function index(): View {
-//			$articles = Article::get()->orderBy('updated_at')->limit(5);
-			$articles = Article::limit(5)->get();
+			$articles = Article::orderBy('updated_at')->limit(5)->get();
 			return view('admin.articles', ['articles' => $articles]);
 		}
 
@@ -85,32 +85,44 @@
 		 *
 		 * @param Article $article
 		 *
-		 * @return void
+		 * @return \Illuminate\Contracts\View\View|Application|Factory
 		 */
-		public function edit(Article $article): void {
-			//
+		public function edit(Article $article): Application|View|Factory {
+			$currentCategory = ArticleCategory::where('article_id', $article->article_id)->first();
+			return view('admin.articles.edit', ['article' => $article, 'categories' => Category::all(), 'articleCategory' => $currentCategory]);
 		}
 
-		/**
+		/******************************************************
 		 * Update the specified resource in storage.
 		 *
 		 * @param UpdateArticleRequest $request
 		 * @param Article              $article
 		 *
-		 * @return void
-		 */
-		public function update(UpdateArticleRequest $request, Article $article): void {
-			//
+		 * @return Redirector|Application|RedirectResponse
+		 *****************************************************/
+		public function update(UpdateArticleRequest $request, Article $article): Application|RedirectResponse|Redirector {
+			$image = 'Article_' . $article->article_id . '_' . time() . '_'. $request->file('ArticleImage')->getClientOriginalName();
+			$request->file('ArticleImage')->move(public_path('images'), $image);
+
+			$newArticle = Article::find($article->article_id);
+			$newArticle->title = $request->input('ArticleTittle');
+			$newArticle->subtitle = $request->input('ArticleSubtitle');
+			$newArticle->body = $request->input('ArticleBody');
+			$newArticle->image = $image;
+			if($newArticle->save()) {
+				$message = 'Article Has been updated';
+			}
+			return redirect(route('panel.index'));
 		}
 
-		/**
+		/******************************************************
 		 * Remove the specified resource from storage.
 		 *
 		 * @param Article $article
 		 *
 		 * @return void
-		 */
+		 *****************************************************/
 		public function destroy(Article $article): void {
-			//
+			$article->delete();
 		}
 	}

@@ -9,12 +9,12 @@
 	<title>Administration Panel</title>
 </head>
 <body>
-<div class="container">
-	<div class="box">
+<div class = "container">
+	<div class = "box">
 		{{ Auth::user()->name }}
-		<form action = "{{ route('logout') }}" method="POST">
+		<form action = "{{ route('logout') }}" method = "POST">
 			@csrf
-			<button type="submit">Logout</button>
+			<button type = "submit">Logout</button>
 		</form>
 	</div>
 </div>
@@ -26,18 +26,20 @@
 		</div>
 		<div class = "col-9">
 			<div class = "container" style = "padding: 1rem 0">
-
 				@foreach($articles as $article)
 					<div class = "row">
 						<div class = "col-6">
-							<img src = "https://image.tmdb.org/t/p/original/zKv7KF0pH9ASv2uGgTvTylMlxQn.jpg" alt = "Article Image" class = "img-fluid">
+							<img src = "{{ $article->image ? url('images/' . $article->image) : 'https://image.tmdb.org/t/p/original/zKv7KF0pH9ASv2uGgTvTylMlxQn.jpg' }}" alt = "Article Image" class = "img-fluid">
 						</div>
-						<div class = "col-6 rest">
+						<div class = "col-6">
 							<h6 class = "title-list">{{ $article->subtitle }}</h6>
 							<h3 class = "title-main">{{ $article->title }}</h3>
-							<p>{{ $article->body }}</p>
-							<a href = "{{ route('view.article', ['category' => 2, 'article' => $article->article_id, 'slug' => $article->slug]) }}" class = "btn btn-style">Learn
-								More</a>
+							<p class="article-body">{{ $article->body }}</p>
+							<div class = "rest">
+								<a href = "{{ route('view.article', ['category' => 2, 'article' => $article->article_id, 'slug' => $article->slug]) }}" class = "btn btn-style">View</a>
+								<a href = "{{ route('edit.article', ['article' => $article->article_id]) }}" class="btn btn-style">Edit</a>
+								<a href = "{{ route('delete.article', ['article' => $article->article_id]) }}" class="btn btn-style">Delete</a>
+							</div>
 						</div>
 					</div>
 				@endforeach

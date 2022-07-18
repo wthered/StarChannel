@@ -33,6 +33,11 @@
 		Route::get('/panel/article/create', [ArticleController::class, 'create'])->name('create.article');
 		Route::post('/panel/article/store', [ArticleController::class, 'store'])->name('article.store');
 
+		Route::get('/panel/article/edit/{article}', [ArticleController::class, 'edit'])->name('edit.article');
+		Route::post('/panel/article/update/{article}', [ArticleController::class, 'update'])->name('update.article');
+
+		Route::post('/panel/article/delete/{article}', [ArticleController::class, 'destroy'])->name('delete.article');
+
 		Route::get('/panel/category/create', [CategoryController::class, 'create'])->name('create.category');
 		Route::post('/panel/category/store', [CategoryController::class, 'store'])->name('store.category');
 	});

@@ -36,9 +36,13 @@
 	width: 75%;
 }
 
-.rest p {
+.article-body {
 	margin-top: 1rem;
 	margin-bottom: 1rem;
+}
+
+.rest {
+	display: flex;
 }
 
 .btn {
@@ -69,11 +73,14 @@
 	transition: 0.3s ease-in;
 	border-radius: var(--border-radius);
 	text-transform: capitalize;
-	margin-top: 1.5rem;
+	margin: 1.5rem;
 	color: #fff;
 	background-color: var(--primary-color);
 	border-color: var(--primary-color);
 	text-decoration: none;
+	justify-content: center;
+	display: flex;
+	width: 50%;
 }
 
 .img-fluid {
