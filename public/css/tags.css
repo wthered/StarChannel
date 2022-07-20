@@ -1,0 +1,61 @@
+:root {
+	font-size: 16px;
+}
+
+#messageBox {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#messageLine {
+	list-style: none;
+}
+
+.box {
+	display: flex;
+}
+
+form {
+	width: 100%;
+}
+
+.form-line {
+	display: flex;
+}
+
+label {
+	width: 20%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#tagName {
+	width: 80%;
+	line-height: 2rem;
+	border-radius: .25rem;
+}
+
+.btn-tag {
+	width: 100%;
+	margin-top: 1rem;
+	padding: .75rem;
+	background-color: transparent;
+	border: 1px solid #6ab04c;
+	border-radius: .25rem;
+	color: #6ab04c;
+	font-size: 1rem;
+	font-family: 'Nunito', 'Poppins', sans-serif;
+}
+
+.btn-tag:hover {
+	background-color: #30336b;
+	border-color: #30336b;
+	color: #badc58;
+}
+
+a.btn-tag {
+	text-decoration: none;
+	text-align: center;
+}

@@ -23,6 +23,7 @@
 		<div class = "col-3">
 			<a href = "{{ route('create.article') }}" class = "btn btn-link btn-article">Create Article</a>
 			<a href = "{{ route('create.category') }}" class = "btn btn-link btn-article">Create Category</a>
+			<a href = "{{ route('create.tag') }}" class = "btn btn-link btn-article">Create Tag</a>
 		</div>
 		<div class = "col-9">
 			<div class = "container" style = "padding: 1rem 0">
@@ -39,15 +40,15 @@
 								<a href = "{{ route('view.article', ['category' => 2, 'article' => $article->article_id, 'slug' => $article->slug]) }}" class = "btn btn-style">View</a>
 								<a href = "{{ route('edit.article', ['article' => $article->article_id]) }}" class="btn btn-style">Edit</a>
 								<a href = "{{ route('delete.article', ['article' => $article->article_id]) }}" class="btn btn-style">Delete</a>
+								<a href = "{{ route('assign.tag', ['article' => $article->article_id]) }}" class="btn btn-style">Tag</a>
 							</div>
 						</div>
 					</div>
 				@endforeach
-
 			</div>
 		</div>
 	</div>
 </div>
-<script src = "https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+
 </body>
 </html>

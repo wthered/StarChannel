@@ -16,6 +16,7 @@
 				$table->foreign('article_id')->references('article_id')->on('articles')->onUpdate('cascade')->onDelete('cascade');
 				$table->integer('tag_id')->unsigned();
 				$table->foreign('tag_id')->references('id')->on('tags')->onUpdate('cascade')->onDelete('cascade');
+				$table->unique(['article_id', 'tag_id']);
 				$table->timestamps();
 			});
 		}

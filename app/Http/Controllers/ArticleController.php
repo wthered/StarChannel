@@ -6,7 +6,9 @@
 	use App\Http\Requests\UpdateArticleRequest;
 	use App\Models\Article;
 	use App\Models\ArticleCategory;
+	use App\Models\ArticleTag;
 	use App\Models\Category;
+	use App\Models\Tag;
 	use Illuminate\Contracts\Foundation\Application;
 	use Illuminate\Contracts\View\Factory;
 	use Illuminate\Http\JsonResponse;
@@ -72,11 +74,12 @@
 		 * @param int     $article
 		 * @param string  $slug
 		 *
-		 * @return JsonResponse
+		 * @return View
 		 */
-		public function show(Request $r, string $category, int $article, string $slug): string {
+		public function show(Request $r, string $category, int $article, string $slug): View {
 			$this_article = Article::find($article);
-			$parameters = array('category' => $category, 'article' => $this_article);
+			$tags = $this_article->tags()->get();
+			$parameters = array('category' => Category::find($category), 'article' => $this_article, 'tags' => $tags);
 			return view('site.single', $parameters);
 		}
 

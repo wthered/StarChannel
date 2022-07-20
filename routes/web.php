@@ -3,6 +3,7 @@
 	use App\Http\Controllers\ArticleController;
 	use App\Http\Controllers\CategoryController;
 	use App\Http\Controllers\HomeController;
+	use App\Http\Controllers\TagController;
 	use Illuminate\Support\Facades\Auth;
 	use Illuminate\Support\Facades\Route;
 
@@ -40,5 +41,10 @@
 
 		Route::get('/panel/category/create', [CategoryController::class, 'create'])->name('create.category');
 		Route::post('/panel/category/store', [CategoryController::class, 'store'])->name('store.category');
-	});
 
+		Route::get('/panel/tag/create', [TagController::class, 'create'])->name('create.tag');
+		Route::post('/panel/tag/store', [TagController::class, 'store'])->name('store.tag');
+
+		Route::get('/panel/tag/assign/{article}', [TagController::class, 'assign'])->name('assign.tag');
+		Route::post('/panel/tag/assign/{article}/save', [TagController::class, 'commit'])->name('save.tag');
+	});

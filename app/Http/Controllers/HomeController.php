@@ -25,7 +25,7 @@
 		 * @return Renderable
 		 */
 		public function index(Request $r): Renderable {
-			$greece = Category::where('category_title', 'Ελλάδα' )->first();
+			$greece = Category::where('category_id', 2)->first();
 			$greece['articles'] = $greece->articles()->get();
 			$article_list = array();
 			foreach ($greece['articles'] as $article) {
